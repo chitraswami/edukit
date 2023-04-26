@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card mt-5 p-3 shadow">
+        <ng-container *ngIf="data">
+          <h2>Hello: {{ data.displayName }}</h2>
+          <p>Email: {{ data.email }}</p>
+          <div *ngIf="!data.address">
+            <h3>Address:</h3>
+            <p>{{ data.address.line1 }}</p>
+            <p>{{ data.address.line2 }}</p>
+            <p>
+              {{ data.address.city }}, {{ data.address.state }}
+              {{ data.address.zip }}
+            </p>
+            <button class="btn btn-primary" (click)="editAddress()">
+              Edit Address
+            </button>
+          </div>
+          <div *ngIf="!data.address">
+            <button class="btn btn-success" (click)="addAddress()">
+              Add Address
+            </button>
+          </div>
+        </ng-container>
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
